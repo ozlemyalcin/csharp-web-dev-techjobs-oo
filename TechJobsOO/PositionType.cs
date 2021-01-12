@@ -15,9 +15,26 @@ namespace TechJobsOO
 
         public PositionType(string value) : this()
         {
-            Value = value;
+            this.Value = value;
         }
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
+
+        public override string ToString()
+        {
+            return Value;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is PositionType positionType &&
+                Id == positionType.Id;
+           
+        }
     }
 }
